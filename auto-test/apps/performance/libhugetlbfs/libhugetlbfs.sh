@@ -93,11 +93,14 @@ libhugetlbfs_build_test() {
     # Private tree with CentOS build fix
     # When patch is upstream remove private tree and enable upstream tree
     #wget http://github.com/nareshkamboju/libhugetlbfs/releases/download/"${VERSION}"/libhugetlbfs-"${VERSION}".tar.gz
-    wget http://htsat.vicp.cc:804/libhugetlbfs-2.20.tar.gz
+   # wget http://htsat.vicp.cc:804/libhugetlbfs-2.20.tar.gz
+   git clone https://github.com/libhugetlbfs/libhugetlbfs.git
+   git reset --hard e44180072b796c0e28e53c4d01ef6279caaa2a99
     CWD=$(pwd)
-    tar -xvf libhugetlbfs-"${VERSION}".tar.gz
+    #tar -xvf libhugetlbfs-"${VERSION}".tar.gz
     # shellcheck disable=SC2164
-    cd libhugetlbfs-"${VERSION}"
+    #cd libhugetlbfs-"${VERSION}"
+    cd libhugetlbfs
     make BUILDTYPE=NATIVEONLY
 }
 
